@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "Copy Link as Markdown",
+    "description": "Copy Link as Markdown",
+    "version": "1.0",
+    "icons": {
+        "48": "link.png"
+    },
+    "background": {
+      "service_worker": "service_worker.js"
+    },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["content_scripts.js"]
+    }],
+    "commands": {
+      "inject-script": {
+        "suggested_key": {
+           "default": "Ctrl+Shift+L",
+           "mac": "Command+Shift+L"
+        },
+        "description": "Inject a script on the page"
+      }
+    },
+    "permissions": [
+        "activeTab", "clipboardWrite"
+    ]
+}
